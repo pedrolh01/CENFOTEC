@@ -1,0 +1,64 @@
+
+1 - Crear una función que reciba un número entero y un string y retorne un array del tamaño y contendido ingresado
+
+func createArrayWithContent(size:Int,content:String) -> Array<String>{
+    var _arr = [String](repeating: content, count: size)   
+    return _arr
+}
+var cc = createArrayWithContent(size:10,content:"pedrin")
+print(cc)
+
+2 - Crear una función que reciba un número positivo de tipo entero, la misma imprimirá desde 1 hasta dicho número si los valores son pares o impares
+
+func printDifferentNumbers(number:Int){
+    var i = 1
+    while i <= number {
+        if i % 2 == 0 {
+        print("El numero \(i) es par")
+        }
+        else {
+            print("El numero \(i) es impar")
+        }
+        i += 1
+    }   
+ }
+ printDifferentNumbers(number:20)
+
+3 - Crear una función que reciba 2 strings, y retorne el string que contenga más caracteres
+ func searchTheLongestString(stringOne:String, stringTwo: String) -> String{
+    var one = stringOne.count
+    var two = stringTwo.count
+    var retorna = ""
+    if one > two{
+        retorna = stringOne
+    }else{
+        retorna = stringTwo
+    }
+   return retorna
+ }
+ var longest = searchTheLongestString(stringOne:"hola como estas", stringTwo:"bien y ud")
+ print(longest)
+
+4 - Crear una función que reciba un número entero y determine si él mismo pertenece a la sucesión de fibonnacci o no
+
+func isFibonnacciNumber(number: Int) -> Bool { 
+    var i = 0
+    var x = 0
+    var y = 1
+    var res = 0
+    var sino = false
+    while i  <= number+1{
+        res = x + y
+        if number == res {
+           sino = true
+           break 
+        }
+        x = y
+        y = res
+        i = i + 1
+    } 
+    return sino
+ } 
+
+ var isornot = isFibonnacciNumber(number:1597)
+ print(isornot)
