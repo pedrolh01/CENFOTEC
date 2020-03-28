@@ -51,6 +51,10 @@ class ArticuloListViewController: UIViewController {
         articulos.append(Articulo(nombre: "maria", cantidad: 7))
     }
     func articulosAl(){
+        
+        /// dogs.sorted(by:{$0.age < $1.age})
+        ///dogfiltered = dogs.filter({$0.age >= 5})
+        //dogs.map({$0.name}) // new arreglo
         articulosAx.removeAll()
         for index in (articulos).reversed() {
             articulosAx.append(index)
