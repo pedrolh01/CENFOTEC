@@ -82,9 +82,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DCB33388242F9147006AFE10 /* tabla */ = {
+		DCB33388242F9147006AFE10 /* quiz2 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DCB3339D242F914A006AFE10 /* Build configuration list for PBXNativeTarget "tabla" */;
+			buildConfigurationList = DCB3339D242F914A006AFE10 /* Build configuration list for PBXNativeTarget "quiz2" */;
 			buildPhases = (
 				DCB33385242F9147006AFE10 /* Sources */,
 				DCB33386242F9147006AFE10 /* Frameworks */,
@@ -94,7 +94,7 @@
 			);
 			dependencies = (
 			);
-			name = tabla;
+			name = quiz2;
 			productName = tabla;
 			productReference = DCB33389242F9147006AFE10 /* quiz2.app */;
 			productType = "com.apple.product-type.application";
@@ -114,7 +114,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DCB33384242F9147006AFE10 /* Build configuration list for PBXProject "tabla" */;
+			buildConfigurationList = DCB33384242F9147006AFE10 /* Build configuration list for PBXProject "quiz2" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -127,7 +127,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DCB33388242F9147006AFE10 /* tabla */,
+				DCB33388242F9147006AFE10 /* quiz2 */,
 			);
 		};
 /* End PBXProject section */
@@ -306,7 +306,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ldz.tarea3.tabla;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ldz.quiz2;
 				PRODUCT_NAME = quiz2;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -323,7 +323,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ldz.tarea3.tabla;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ldz.quiz2;
 				PRODUCT_NAME = quiz2;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -333,7 +333,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DCB33384242F9147006AFE10 /* Build configuration list for PBXProject "tabla" */ = {
+		DCB33384242F9147006AFE10 /* Build configuration list for PBXProject "quiz2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DCB3339B242F914A006AFE10 /* Debug */,
@@ -342,7 +342,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DCB3339D242F914A006AFE10 /* Build configuration list for PBXNativeTarget "tabla" */ = {
+		DCB3339D242F914A006AFE10 /* Build configuration list for PBXNativeTarget "quiz2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DCB3339E242F914A006AFE10 /* Debug */,

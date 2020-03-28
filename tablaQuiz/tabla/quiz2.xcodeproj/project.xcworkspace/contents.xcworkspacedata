@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:tabla.xcodeproj">
+      location = "self:/Users/felix/Desktop/pedro/tablaQuiz/tabla/quiz2.xcodeproj">
    </FileRef>
 </Workspace>
