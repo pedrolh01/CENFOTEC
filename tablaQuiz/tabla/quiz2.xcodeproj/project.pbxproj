@@ -20,7 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		DCB33389242F9147006AFE10 /* tabla.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tabla.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCB33389242F9147006AFE10 /* quiz2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = quiz2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCB3338C242F9147006AFE10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCB3338E242F9147006AFE10 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DCB33390242F9147006AFE10 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,7 +56,7 @@
 		DCB3338A242F9147006AFE10 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DCB33389242F9147006AFE10 /* tabla.app */,
+				DCB33389242F9147006AFE10 /* quiz2.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -96,7 +96,7 @@
 			);
 			name = tabla;
 			productName = tabla;
-			productReference = DCB33389242F9147006AFE10 /* tabla.app */;
+			productReference = DCB33389242F9147006AFE10 /* quiz2.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -307,7 +307,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ldz.tarea3.tabla;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = quiz2;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -324,7 +324,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ldz.tarea3.tabla;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = quiz2;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
