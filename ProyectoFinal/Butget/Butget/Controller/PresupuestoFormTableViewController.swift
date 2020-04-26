@@ -7,84 +7,149 @@
 //
 
 import UIKit
-
+import SwiftDate
+protocol PresupuestoFormTableViewControllerProtocol:class{
+    func add(presupuesto:Presupuesto) 
+    func addInicial(detallePresupuesto:DetallePresupuesto,presupuesto:Presupuesto)
+    func pop()
+    func hola(caca:String)
+}
 class PresupuestoFormTableViewController: UITableViewController {
 
+    @IBOutlet weak var txtDate: UITextField!
+    @IBOutlet weak var txtPeriocidad: UITextField!
+    @IBOutlet weak var txtMontoInicial: UITextField!
+    @IBOutlet weak var txtNombre: UITextField!
+    var periocidadList = [
+        Presupuesto.PeriocidadType.semanal.rawValue,
+        Presupuesto.PeriocidadType.quincenal.rawValue,
+        Presupuesto.PeriocidadType.mensual.rawValue
+    ]
+    let periocidadPickerView = UIPickerView()
+    private var datePicker:UIDatePicker?
+    let PresupuestoDetailTableViewController = "PresupuestoDetailTableViewController"
+    
+    
+     weak var delegate : PresupuestoFormTableViewControllerProtocol?
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        setNavigationButton()
+        initializePicker()
+        dismissPickerView()
+        //periocidadPickerView.delegate = self
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    func setNavigationButton(){
+        let setNavigationButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addAction(sender:)))
+        navigationItem.rightBarButtonItem = setNavigationButton
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+    func initializePicker() {
+        datePicker = UIDatePicker()
+        datePicker?.datePickerMode = .date
+        datePicker?.addTarget(self, action: #selector(dateChanged(datePicker:)), for: .valueChanged)
+        
+        let tapGesture = UITapGestureRecognizer(target:self,action:#selector(viewTapped(gestureRecognizer:)))
+        view.addGestureRecognizer(tapGesture)
+        
+        txtDate.inputView = datePicker
+        
+        
+        periocidadPickerView.delegate = self
+        txtPeriocidad.inputView = periocidadPickerView
     }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+    @objc func viewTapped(gestureRecognizer:UITapGestureRecognizer){
+        view.endEditing(true)
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    @objc func dateChanged(datePicker: UIDatePicker){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        txtDate.text = dateFormatter.string(from: datePicker.date)
+        view.endEditing(false)
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    func dismissPickerView() {
+            let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 45))
+            toolBar.sizeToFit()
+            let flexButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+            let button = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.action))
+            toolBar.setItems([flexButton,button], animated: true)
+            toolBar.isUserInteractionEnabled = true
+            txtPeriocidad.inputAccessoryView = toolBar
+            //txtProvincia.inputAccessoryView = toolBar
+        }
+    @objc func action() {
+        if txtPeriocidad.isEditing {
+            txtPeriocidad.text = periocidadList[periocidadPickerView.selectedRow(inComponent: 0)]
+        } else {
+            txtPeriocidad.text = periocidadList[periocidadPickerView.selectedRow(inComponent: 0)]
+        }
+        view.endEditing(true)
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    @objc func addAction(sender:UIBarButtonItem){
+//        if let newPage = storyboard?.instantiateViewController(identifier:PresupuestoDetailTableViewController)
+//            as? PresupuestoDetailTableViewController{
+//
+//        }
+        print("addaction")
+        let h = "camion"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        let date = dateFormatter.date(from: txtDate.text!)
+        guard let detalle = txtNombre.text,let fecha = date,let periocidad = txtPeriocidad.text, let monto = Double(txtMontoInicial.text!) else {
+               return
+        }
+        
+        if let a = Presupuesto.PeriocidadType(rawValue: periocidad){
+            var numPeriocidad:Int = 0
+            var fechaFinal:Date
+            switch a {
+            case .semanal:
+                numPeriocidad = 1
+                fechaFinal = fecha + 1.weeks
+            case .quincenal:
+                numPeriocidad = 2
+                fechaFinal = fecha + 2.weeks
+            case .mensual:
+                numPeriocidad = 3
+                fechaFinal = fecha + 4.weeks
+            }
+            let pre = Presupuesto(nombre:detalle, periocidad: numPeriocidad, fechaInicio: fecha,fechaFinal: fechaFinal )
+            
+            let deta = DetallePresupuesto(detalle: "Monto Inicial", monto: monto, tipo: 0)
+            pre.detallex.append(deta)
+            
+            delegate?.add(presupuesto:pre)
+            delegate?.hola(caca: h)
+            delegate?.pop()
+            print("delegaaaaa")
+        }
+        
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    
+     
+    
+}
+extension PresupuestoFormTableViewController : UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+    return 1 // number of session
     }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if pickerView == periocidadPickerView {
+            return periocidadList.count
+        }
+        return periocidadList.count
+     
     }
-    */
-
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+   if pickerView == periocidadPickerView {
+        return periocidadList[row]
+    }
+    return periocidadList[row]
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    if pickerView == periocidadPickerView {
+        txtPeriocidad.text = periocidadList[row]
+    } else {
+        txtPeriocidad.text = periocidadList[row]
+    }
+    }
+    
 }

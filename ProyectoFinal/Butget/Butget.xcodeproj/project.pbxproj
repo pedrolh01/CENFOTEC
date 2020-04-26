@@ -8,14 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		05AC2A5D1E300E6961675874 /* Pods_Butget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D97BC0262AA97C9B28871A54 /* Pods_Butget.framework */; };
+		DC0691FC244ACCE000DF9197 /* PresupuestoDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0691FB244ACCE000DF9197 /* PresupuestoDetailTableViewController.swift */; };
+		DC069202244AD48300DF9197 /* PresupuestoXFormTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC069201244AD48300DF9197 /* PresupuestoXFormTableViewController.swift */; };
+		DC069204244AD9E400DF9197 /* DetallePresupuesto.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC069203244AD9E400DF9197 /* DetallePresupuesto.swift */; };
+		DC069206244ADBC300DF9197 /* RealmPresupuestoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC069205244ADBC300DF9197 /* RealmPresupuestoManager.swift */; };
+		DC069208244ADBD500DF9197 /* RealmDetallePresupuestoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC069207244ADBD500DF9197 /* RealmDetallePresupuestoManager.swift */; };
+		DC06920A244AE29200DF9197 /* Periocidad.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC069209244AE29200DF9197 /* Periocidad.swift */; };
 		DC12796324422C9C00565C10 /* Date+formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC12796224422C9C00565C10 /* Date+formatter.swift */; };
 		DC12796524422CBE00565C10 /* Presupuesto.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC12796424422CBE00565C10 /* Presupuesto.swift */; };
-		DC12796724422F0900565C10 /* Periodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC12796624422F0900565C10 /* Periodo.swift */; };
-		DC127969244232B200565C10 /* Monto.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC127968244232B200565C10 /* Monto.swift */; };
 		DC12796B244236F100565C10 /* PresupuestoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC12796A244236F100565C10 /* PresupuestoListViewController.swift */; };
 		DC12796D2442373400565C10 /* PresupuestoFormTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC12796C2442373400565C10 /* PresupuestoFormTableViewController.swift */; };
-		DC12796F2442378200565C10 /* PresupuestoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC12796E2442378200565C10 /* PresupuestoDetailViewController.swift */; };
-		DC127971244237DF00565C10 /* MontoFormTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC127970244237DF00565C10 /* MontoFormTableViewController.swift */; };
 		DC1279732442380A00565C10 /* HistorialTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1279722442380A00565C10 /* HistorialTableViewController.swift */; };
 		DC1279752442383600565C10 /* ConfiguracionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1279742442383600565C10 /* ConfiguracionTableViewController.swift */; };
 		DC12797924423EFC00565C10 /* PresupuestoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC12797724423EFC00565C10 /* PresupuestoTableViewCell.swift */; };
@@ -27,20 +29,30 @@
 		DCB3330A242EE6D4006AFE10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCB33308242EE6D4006AFE10 /* Main.storyboard */; };
 		DCB3330C242EE6D8006AFE10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCB3330B242EE6D8006AFE10 /* Assets.xcassets */; };
 		DCB3330F242EE6D8006AFE10 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCB3330D242EE6D8006AFE10 /* LaunchScreen.storyboard */; };
+		DCCAE8A02455ED2E00965C29 /* HistorialTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCAE89E2455ED2E00965C29 /* HistorialTableViewCell.swift */; };
+		DCCAE8A12455ED2E00965C29 /* HistorialTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCCAE89F2455ED2E00965C29 /* HistorialTableViewCell.xib */; };
+		DCCAE8A42455F70400965C29 /* sPresupuesto.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCAE8A32455F70400965C29 /* sPresupuesto.swift */; };
+		DCCAE8A62455F71000965C29 /* sDetallePresupuesto.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCAE8A52455F71000965C29 /* sDetallePresupuesto.swift */; };
+		DCCAE8A824560F4000965C29 /* PresupuestoEditableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCAE8A724560F4000965C29 /* PresupuestoEditableTableViewController.swift */; };
+		DCFE096F24541FF200C9B028 /* HistorialHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFE096E24541FF200C9B028 /* HistorialHeader.swift */; };
+		DCFE09712454201100C9B028 /* HistorialHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCFE09702454201100C9B028 /* HistorialHeader.xib */; };
+		DCFE09732454229A00C9B028 /* HistorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFE09722454229A00C9B028 /* HistorialViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		44B8025527FA28697A265E2F /* Pods-Butget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Butget.release.xcconfig"; path = "Target Support Files/Pods-Butget/Pods-Butget.release.xcconfig"; sourceTree = "<group>"; };
 		927E1D5582C0971B339B8785 /* Pods-Butget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Butget.debug.xcconfig"; path = "Target Support Files/Pods-Butget/Pods-Butget.debug.xcconfig"; sourceTree = "<group>"; };
 		D97BC0262AA97C9B28871A54 /* Pods_Butget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Butget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC0691FB244ACCE000DF9197 /* PresupuestoDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresupuestoDetailTableViewController.swift; sourceTree = "<group>"; };
+		DC069201244AD48300DF9197 /* PresupuestoXFormTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresupuestoXFormTableViewController.swift; sourceTree = "<group>"; };
+		DC069203244AD9E400DF9197 /* DetallePresupuesto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetallePresupuesto.swift; sourceTree = "<group>"; };
+		DC069205244ADBC300DF9197 /* RealmPresupuestoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmPresupuestoManager.swift; sourceTree = "<group>"; };
+		DC069207244ADBD500DF9197 /* RealmDetallePresupuestoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDetallePresupuestoManager.swift; sourceTree = "<group>"; };
+		DC069209244AE29200DF9197 /* Periocidad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Periocidad.swift; sourceTree = "<group>"; };
 		DC12796224422C9C00565C10 /* Date+formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+formatter.swift"; sourceTree = "<group>"; };
 		DC12796424422CBE00565C10 /* Presupuesto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presupuesto.swift; sourceTree = "<group>"; };
-		DC12796624422F0900565C10 /* Periodo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Periodo.swift; sourceTree = "<group>"; };
-		DC127968244232B200565C10 /* Monto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monto.swift; sourceTree = "<group>"; };
 		DC12796A244236F100565C10 /* PresupuestoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresupuestoListViewController.swift; sourceTree = "<group>"; };
 		DC12796C2442373400565C10 /* PresupuestoFormTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresupuestoFormTableViewController.swift; sourceTree = "<group>"; };
-		DC12796E2442378200565C10 /* PresupuestoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresupuestoDetailViewController.swift; sourceTree = "<group>"; };
-		DC127970244237DF00565C10 /* MontoFormTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MontoFormTableViewController.swift; sourceTree = "<group>"; };
 		DC1279722442380A00565C10 /* HistorialTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorialTableViewController.swift; sourceTree = "<group>"; };
 		DC1279742442383600565C10 /* ConfiguracionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfiguracionTableViewController.swift; sourceTree = "<group>"; };
 		DC12797724423EFC00565C10 /* PresupuestoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresupuestoTableViewCell.swift; sourceTree = "<group>"; };
@@ -54,6 +66,14 @@
 		DCB3330B242EE6D8006AFE10 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DCB3330E242EE6D8006AFE10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DCB33310242EE6D8006AFE10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DCCAE89E2455ED2E00965C29 /* HistorialTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorialTableViewCell.swift; sourceTree = "<group>"; };
+		DCCAE89F2455ED2E00965C29 /* HistorialTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistorialTableViewCell.xib; sourceTree = "<group>"; };
+		DCCAE8A32455F70400965C29 /* sPresupuesto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sPresupuesto.swift; sourceTree = "<group>"; };
+		DCCAE8A52455F71000965C29 /* sDetallePresupuesto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sDetallePresupuesto.swift; sourceTree = "<group>"; };
+		DCCAE8A724560F4000965C29 /* PresupuestoEditableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresupuestoEditableTableViewController.swift; sourceTree = "<group>"; };
+		DCFE096E24541FF200C9B028 /* HistorialHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorialHeader.swift; sourceTree = "<group>"; };
+		DCFE09702454201100C9B028 /* HistorialHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistorialHeader.xib; sourceTree = "<group>"; };
+		DCFE09722454229A00C9B028 /* HistorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorialViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,8 +101,8 @@
 			isa = PBXGroup;
 			children = (
 				DC12796424422CBE00565C10 /* Presupuesto.swift */,
-				DC12796624422F0900565C10 /* Periodo.swift */,
-				DC127968244232B200565C10 /* Monto.swift */,
+				DC069203244AD9E400DF9197 /* DetallePresupuesto.swift */,
+				DC069209244AE29200DF9197 /* Periocidad.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -92,11 +112,13 @@
 			children = (
 				DC12796A244236F100565C10 /* PresupuestoListViewController.swift */,
 				DC12796C2442373400565C10 /* PresupuestoFormTableViewController.swift */,
-				DC12796E2442378200565C10 /* PresupuestoDetailViewController.swift */,
-				DC127970244237DF00565C10 /* MontoFormTableViewController.swift */,
 				DC1279722442380A00565C10 /* HistorialTableViewController.swift */,
 				DC1279742442383600565C10 /* ConfiguracionTableViewController.swift */,
 				DC12797B2442472100565C10 /* TabBarController.swift */,
+				DC0691FB244ACCE000DF9197 /* PresupuestoDetailTableViewController.swift */,
+				DC069201244AD48300DF9197 /* PresupuestoXFormTableViewController.swift */,
+				DCFE09722454229A00C9B028 /* HistorialViewController.swift */,
+				DCCAE8A724560F4000965C29 /* PresupuestoEditableTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -104,6 +126,7 @@
 		DC12795F24422BF700565C10 /* CustomCell */ = {
 			isa = PBXGroup;
 			children = (
+				DCFE096D24541F8800C9B028 /* Historial */,
 				DC12797624423EC000565C10 /* Presupuesto */,
 			);
 			path = CustomCell;
@@ -112,6 +135,8 @@
 		DC12796024422C6500565C10 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				DC069205244ADBC300DF9197 /* RealmPresupuestoManager.swift */,
+				DC069207244ADBD500DF9197 /* RealmDetallePresupuestoManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -154,6 +179,7 @@
 		DCB33301242EE6D4006AFE10 /* Butget */ = {
 			isa = PBXGroup;
 			children = (
+				DCCAE8A22455F6E600965C29 /* Struct */,
 				DC12796124422C7400565C10 /* Extension */,
 				DC12796024422C6500565C10 /* Manager */,
 				DC12795F24422BF700565C10 /* CustomCell */,
@@ -168,6 +194,26 @@
 				DCB33310242EE6D8006AFE10 /* Info.plist */,
 			);
 			path = Butget;
+			sourceTree = "<group>";
+		};
+		DCCAE8A22455F6E600965C29 /* Struct */ = {
+			isa = PBXGroup;
+			children = (
+				DCCAE8A32455F70400965C29 /* sPresupuesto.swift */,
+				DCCAE8A52455F71000965C29 /* sDetallePresupuesto.swift */,
+			);
+			path = Struct;
+			sourceTree = "<group>";
+		};
+		DCFE096D24541F8800C9B028 /* Historial */ = {
+			isa = PBXGroup;
+			children = (
+				DCFE096E24541FF200C9B028 /* HistorialHeader.swift */,
+				DCFE09702454201100C9B028 /* HistorialHeader.xib */,
+				DCCAE89E2455ED2E00965C29 /* HistorialTableViewCell.swift */,
+				DCCAE89F2455ED2E00965C29 /* HistorialTableViewCell.xib */,
+			);
+			path = Historial;
 			sourceTree = "<group>";
 		};
 		FF19452C82F08F0102634448 /* Frameworks */ = {
@@ -241,7 +287,9 @@
 				DCB3330F242EE6D8006AFE10 /* LaunchScreen.storyboard in Resources */,
 				DCB3330C242EE6D8006AFE10 /* Assets.xcassets in Resources */,
 				DCB3330A242EE6D4006AFE10 /* Main.storyboard in Resources */,
+				DCFE09712454201100C9B028 /* HistorialHeader.xib in Resources */,
 				DC12797A24423EFC00565C10 /* PresupuestoTableViewCell.xib in Resources */,
+				DCCAE8A12455ED2E00965C29 /* HistorialTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,19 +342,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCCAE8A824560F4000965C29 /* PresupuestoEditableTableViewController.swift in Sources */,
+				DC06920A244AE29200DF9197 /* Periocidad.swift in Sources */,
 				DC12796B244236F100565C10 /* PresupuestoListViewController.swift in Sources */,
-				DC127969244232B200565C10 /* Monto.swift in Sources */,
 				DC12796324422C9C00565C10 /* Date+formatter.swift in Sources */,
 				DC12797C2442472100565C10 /* TabBarController.swift in Sources */,
 				DC12797924423EFC00565C10 /* PresupuestoTableViewCell.swift in Sources */,
+				DCCAE8A02455ED2E00965C29 /* HistorialTableViewCell.swift in Sources */,
+				DCFE09732454229A00C9B028 /* HistorialViewController.swift in Sources */,
+				DCCAE8A62455F71000965C29 /* sDetallePresupuesto.swift in Sources */,
 				DC12796D2442373400565C10 /* PresupuestoFormTableViewController.swift in Sources */,
+				DC069202244AD48300DF9197 /* PresupuestoXFormTableViewController.swift in Sources */,
+				DCCAE8A42455F70400965C29 /* sPresupuesto.swift in Sources */,
 				DCB33307242EE6D4006AFE10 /* ViewController.swift in Sources */,
-				DC12796F2442378200565C10 /* PresupuestoDetailViewController.swift in Sources */,
-				DC127971244237DF00565C10 /* MontoFormTableViewController.swift in Sources */,
 				DC1279732442380A00565C10 /* HistorialTableViewController.swift in Sources */,
+				DC069206244ADBC300DF9197 /* RealmPresupuestoManager.swift in Sources */,
 				DCB33303242EE6D4006AFE10 /* AppDelegate.swift in Sources */,
 				DC12796524422CBE00565C10 /* Presupuesto.swift in Sources */,
-				DC12796724422F0900565C10 /* Periodo.swift in Sources */,
+				DC0691FC244ACCE000DF9197 /* PresupuestoDetailTableViewController.swift in Sources */,
+				DC069208244ADBD500DF9197 /* RealmDetallePresupuestoManager.swift in Sources */,
+				DCFE096F24541FF200C9B028 /* HistorialHeader.swift in Sources */,
+				DC069204244AD9E400DF9197 /* DetallePresupuesto.swift in Sources */,
 				DC1279752442383600565C10 /* ConfiguracionTableViewController.swift in Sources */,
 				DCB33305242EE6D4006AFE10 /* SceneDelegate.swift in Sources */,
 			);
@@ -459,6 +515,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ldz.budget.Butget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -477,6 +534,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ldz.budget.Butget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

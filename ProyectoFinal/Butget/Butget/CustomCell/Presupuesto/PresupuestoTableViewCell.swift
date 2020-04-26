@@ -10,15 +10,14 @@ import UIKit
 
 class PresupuestoTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    @IBOutlet weak var lbMonto: UILabel!
+    
+    @IBOutlet weak var lbNombre: UILabel!
+    func setupCell(presupuesto: Presupuesto) {
+        var total = presupuesto.detallex.map({$0.monto}).reduce(0,+)
+        lbNombre.text = presupuesto.nombre
+        lbMonto.text = String(total)
     }
     
 }
