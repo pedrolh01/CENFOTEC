@@ -35,6 +35,13 @@ class CategoryRealmStore: CategoryStoreProtocol{
         }
         completionHandler(categories)
     }
+    func fetch(id:String,completionHandler:(_ category:Category?) -> Void){
+        let realm = try? Realm()
+        let predicate = NSPredicate(format: "identifier = %@",id)
+        let result = realm?.objects(RealmCategory.self).filter(predicate)
+        completionHandler(result?.first?.toCategory())
+    }
+
     
     
 }

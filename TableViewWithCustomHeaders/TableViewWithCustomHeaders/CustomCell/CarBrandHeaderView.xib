@@ -53,7 +53,7 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="countryLb" destination="eyN-eo-Y1G" id="GFa-Wm-2LH"/>
-                <outlet property="nameLb" destination="Cda-eO-n6d" id="M6s-Nr-mtb"/>
+                <outlet property="nameLb" destination="Cda-eO-n6d" id="eDu-AW-OPB"/>
             </connections>
             <point key="canvasLocation" x="236" y="22"/>
         </view>

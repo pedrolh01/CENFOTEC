@@ -16,6 +16,7 @@ class PresupuestoXFormTableViewController: UITableViewController {
      
     var presupuesto:Presupuesto?
     var tipo:Int?
+    var NombreTipo:String?
     
     @IBOutlet weak var txtDetalle: UITextField!
     @IBOutlet weak var txtMonto: UITextField!
@@ -23,10 +24,19 @@ class PresupuestoXFormTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationButton()
+        headTipoName()
         print("estamos por aca")
          
     }
     
+     //
+    func headTipoName(){
+        if tipo == 2{//gasto
+            NombreTipo = "Gasto"
+        }else{//
+            NombreTipo = "Dinero"
+        }
+    }
     func setNavigationButton(){
         let setNavigationButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addAction(sender:)))
         navigationItem.rightBarButtonItem = setNavigationButton
@@ -44,6 +54,11 @@ class PresupuestoXFormTableViewController: UITableViewController {
         }
         let deta = DetallePresupuesto(detalle: detalle, monto: montoTipo, tipo: tipo!)
         delegate?.add(detallePresupuesto: deta, presupuesto: presupuesto!) 
+         
+    }
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+         
+            return NombreTipo
          
     }
  

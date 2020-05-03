@@ -111,15 +111,25 @@ class PresupuestoFormTableViewController: UITableViewController {
                 numPeriocidad = 3
                 fechaFinal = fecha + 4.weeks
             }
-            let pre = Presupuesto(nombre:detalle, periocidad: numPeriocidad, fechaInicio: fecha,fechaFinal: fechaFinal )
+            if fechaFinal > Date(){
+                let pre = Presupuesto(nombre:detalle, periocidad: numPeriocidad, fechaInicio: fecha,fechaFinal: fechaFinal )
+                
+                let deta = DetallePresupuesto(detalle: "Monto Inicial", monto: monto, tipo: 0)
+                pre.detallex.append(deta)
+                
+                delegate?.add(presupuesto:pre)
+                delegate?.hola(caca: h)
+                delegate?.pop()
+            }else{
+                let alert = UIAlertController(title: "La fecha inicial debe ser mayor a la fecha actual", message: "...", preferredStyle: .alert)
+
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+                    
+                }))
+
+                self.present(alert, animated: true)
+            }
             
-            let deta = DetallePresupuesto(detalle: "Monto Inicial", monto: monto, tipo: 0)
-            pre.detallex.append(deta)
-            
-            delegate?.add(presupuesto:pre)
-            delegate?.hola(caca: h)
-            delegate?.pop()
-            print("delegaaaaa")
         }
         
     }

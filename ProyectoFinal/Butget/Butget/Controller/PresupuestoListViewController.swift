@@ -81,6 +81,25 @@ class PresupuestoListViewController: UIViewController {
             navigationController?.pushViewController(newPage, animated: true)
         }
     }
+    func alertaEliminar(presupuesto:Presupuesto,indexPath:IndexPath){
+        let alert = UIAlertController(title: "Seguro de eliminar este presupuesto?", message: "Se perdera la informacion.", preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
+            self.realmManager.remove(presupuesto:presupuesto)
+            self.TableView.beginUpdates()
+            self.TableView.deleteRows(at: [indexPath], with: .fade)
+            self.TableView.endUpdates()
+            self.TableView.reloadData()
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
+            print("Handle no logic here")
+        }))
+
+        self.present(alert, animated: true)
+        
+        
+    }
+    
      
 }
 extension PresupuestoListViewController:UITableViewDataSource,UITableViewDelegate{
@@ -89,6 +108,34 @@ extension PresupuestoListViewController:UITableViewDataSource,UITableViewDelegat
     }
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true;
+    }
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .normal, title:  "Delete", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+                    print("OK, marked as Closed")
+                    success(true)
+            if let presupuesto = self.presupuestos?[indexPath.row]{
+                
+                self.alertaEliminar(presupuesto:presupuesto,indexPath:indexPath)
+                
+            }
+                })
+                deleteAction.image = UIImage(named: "tick")
+        deleteAction.backgroundColor = .red
+                
+                return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let modifyAction = UIContextualAction(style: .normal, title:  "Edit", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+                print("Update action ...")
+                success(true)
+            if let presupuesto = self.presupuestos?[indexPath.row]{
+                self.editarlo(presupuesto:presupuesto)
+            }
+            })
+            modifyAction.image = UIImage(named: "hammer")
+        modifyAction.backgroundColor = .black
+            
+            return UISwipeActionsConfiguration(actions: [modifyAction])
     }
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
 
@@ -137,6 +184,8 @@ extension PresupuestoListViewController:UITableViewDataSource,UITableViewDelegat
             return cell
         }
         if let presupuesto = presupuestos?[indexPath.row]{
+            
+            cell.setupCell(presupuesto:presupuesto)
             if presupuesto.detallex.map({$0.monto}).reduce(0,+) == 0 || presupuesto.detallex.map({$0.monto}).reduce(0,+) < 0{
                 cell.backgroundColor = UIColor( red: CGFloat(255/255.0), green: CGFloat(0/255.0), blue: CGFloat(0/255.0), alpha: CGFloat(1.0) )
                     
@@ -145,7 +194,7 @@ extension PresupuestoListViewController:UITableViewDataSource,UITableViewDelegat
                 cell.backgroundColor = UIColor( red: CGFloat(153/255.0), green: CGFloat(204/255.0), blue: CGFloat(255/255.0), alpha: CGFloat(1.0) )
                  
             }
-            cell.setupCell(presupuesto:presupuesto)
+            
         }
         //cell.setupCell(category: categories[indexPath.row])
         return cell
@@ -160,7 +209,9 @@ extension PresupuestoListViewController:UITableViewDataSource,UITableViewDelegat
             //navigationController?.pushViewController(viewController, animated: true)
         }
     }
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
     
 }
  

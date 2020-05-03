@@ -20,23 +20,26 @@ protocol CategoriesBusinessLogic
 
 protocol CategoriesDataStore
 {
-  //var name: String { get set }
+    func getCategory(index:Int) -> Category
 }
 
 class CategoriesInteractor: CategoriesBusinessLogic, CategoriesDataStore
 {
-    func requestDataSourse(request: Categories.DataSource.Request) {
-        storeWorker.fetchAll{
-            (categories) in
-            self.categories = categories
-            presenter?.presentDataSource(response:Categories.DataSource.Response)
-        }
+    func getCategory(index: Int) -> Category {
+       return categories[index]
     }
     
-  var presenter: CategoriesPresentationLogic?
-    var storeWorker: CategoryWorker(store: CategoryRealmStore())
+    
+    var presenter: CategoriesPresentationLogic?
+    var storeWorker = CategoryWorker(store: CategoryMemoryStore())//CategoryRealmStore
     var categories = [Category]()
     
-    
+    func requestDataSourse(request: Categories.DataSource.Request) {
+           storeWorker.fetchAll{
+               (categories) in
+               self.categories = categories
+               presenter?.presentDataSource(response:Categories.DataSource.Response(categories: categories))
+           }
+       }
    
 }

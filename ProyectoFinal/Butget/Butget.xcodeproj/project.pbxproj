@@ -158,6 +158,13 @@
 			path = Presupuesto;
 			sourceTree = "<group>";
 		};
+		DC59CFF7245D37010004B647 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		DCB332F6242EE6D4006AFE10 = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +186,7 @@
 		DCB33301242EE6D4006AFE10 /* Butget */ = {
 			isa = PBXGroup;
 			children = (
+				DC59CFF7245D37010004B647 /* Extensions */,
 				DCCAE8A22455F6E600965C29 /* Struct */,
 				DC12796124422C7400565C10 /* Extension */,
 				DC12796024422C6500565C10 /* Manager */,
@@ -510,6 +518,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C53V9WK5QQ;
 				INFOPLIST_FILE = Butget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -529,6 +538,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C53V9WK5QQ;
 				INFOPLIST_FILE = Butget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

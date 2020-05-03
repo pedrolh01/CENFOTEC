@@ -16,7 +16,7 @@ class HistorialTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    var total:Double?
+    var total:Double = 0
     func setupCell(detallePresupuesto:DetallePresupuesto){
         total = detallePresupuesto.monto
         lbMonto.text = " \(total)"

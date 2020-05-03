@@ -25,6 +25,7 @@ class CategoriesPresenter: CategoriesPresentationLogic
   
   func presentDataSource(response: Categories.DataSource.Response)
   {
-     
+    let categories = response.categories.map({Categories.DataSource.ViewModel.DisplayedCategory(title: $0.name, image: UIImage(named: $0.imageName))})
+    viewController?.displayDataSource(viewModel:Categories.DataSource.ViewModel(displayedCategory: categories))
   }
 }

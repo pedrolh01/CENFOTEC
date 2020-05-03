@@ -14,7 +14,8 @@ import UIKit
 
 @objc protocol CategoriesRoutingLogic
 {
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func goToNextDataSource(index:Int)
+
 }
 
 protocol CategoriesDataPassing
@@ -24,6 +25,13 @@ protocol CategoriesDataPassing
 
 class CategoriesRouter: NSObject, CategoriesRoutingLogic, CategoriesDataPassing
 {
+    func goToNextDataSource(index: Int) {
+        if let viewController = viewController?.storyboard?.instantiateViewController(identifier: "NewsSceneViewController") as? NewsSceneViewController  {
+            viewController.router?.dataStore?.categoryIdentifier = dataStore?.getCategory(index: index).identifier
+            viewController.navigationController?.pushViewController(viewController, animated: true)
+        }
+    }
+    
   weak var viewController: CategoriesViewController?
   var dataStore: CategoriesDataStore?
   

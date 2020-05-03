@@ -14,7 +14,26 @@ import UIKit
 
 class CategoriesWorker
 {
-  func doSomeWork()
-  {
-  }
+    var storeWorker = CategoryWorker(store: CategoryStoreProtocol)
+    func insertInitialCategories(storeWorker:CategoryWorker,completionHandler: () -> Void){
+        let economyCategory = Category(name: "Economia", imageName: "economy", news: [News]())
+        let tecnologyCategory = Category(name: "Tecnologia", imageName: "tecnologia", news: [News]())
+        let incidentCategory = Category(name: "Accedentes", imageName: "incident", news: [News]())
+        let sportCategory = Category(name: "Deportes", imageName: "sport", news: [News]())
+        
+        let categories = [economyCategory,tecnologyCategory,incidentCategory,sportCategory]
+        insertCategory(storeWorker:storeWorker,categories:categories,completionHandler:completionHandler)
+    }
+    func insertCategory(storeWorker:CategoryWorker,categories: [Category],completionHandler: () -> Void){
+        guard let category = categories.first else{
+            completionHandler()
+            return
+        }
+        var categoriesMutable = categories
+        storeWorker.insert(category: category){
+            
+        }
+    }
+  
+  
 }

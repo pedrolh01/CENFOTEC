@@ -44,6 +44,18 @@ class RealmPresupuestoManager {
         }
         return presupuesto
     }
+    func editPeriocidad(presupuesto:Presupuesto,fechaInicio:Date,fechaFinal:Date) -> Presupuesto{
+        do{
+            let realm = try Realm()
+            try realm.write{
+                presupuesto.fechaInicio = fechaInicio
+                presupuesto.fechaFinal = fechaFinal
+            }
+        }catch{
+            print("Realm error por alguna razon")
+        }
+        return presupuesto
+    }
     func remove(presupuesto:Presupuesto){
         do{
             let realm = try Realm()

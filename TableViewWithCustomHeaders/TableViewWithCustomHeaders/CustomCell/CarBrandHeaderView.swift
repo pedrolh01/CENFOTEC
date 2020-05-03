@@ -10,6 +10,7 @@ import UIKit
 
 class CarBrandHeaderView: UITableViewHeaderFooterView {
      
+   
     @IBOutlet weak var nameLb: UILabel!
     
     @IBOutlet weak var countryLb: UILabel!

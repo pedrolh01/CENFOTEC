@@ -14,11 +14,16 @@ import UIKit
 
 protocol CategoriesDisplayLogic: class
 {
-  func displaySomething(viewModel: Categories.Something.ViewModel)
+    func displayDataSource(viewModel: Categories.DataSource.ViewModel)
 }
 
 class CategoriesViewController: UIViewController, CategoriesDisplayLogic
 {
+    
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    var dataSource = [Categories.DataSource.ViewModel.DisplayedCategory]()
   var interactor: CategoriesBusinessLogic?
   var router: (NSObjectProtocol & CategoriesRoutingLogic & CategoriesDataPassing)?
 
@@ -68,32 +73,45 @@ class CategoriesViewController: UIViewController, CategoriesDisplayLogic
   
   override func viewDidLoad()
   {
-    super.viewDidLoad()
-    doSomething()
-    
-    let worker = CategoryWorker(store: CategoryMemoryStore())
-    worker.fetchAll{(categories) in
-        if categories.isEmpty{
-            print("NO HAY CATEGORIAS")
-        }
-        for category in categories{
-            print("\(category.name)")
-        }
+    registerCustomCell()
+    requestDataSource()
+     
+  }
+    func registerCustomCell() {
+        let nib = UINib(nibName: "TableViewCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "TableViewCell")
     }
-  }
+    func requestDataSource(){
+        let request = Categories.DataSource.Request()
+        interactor?.requestDataSourse(request: request)
+    }
+    func displayDataSource(viewModel: Categories.DataSource.ViewModel) {
+        dataSource = viewModel.displayedCategory
+        tableView.reloadData()
+    }
   
-  // MARK: Do something
-  
-  //@IBOutlet weak var nameTextField: UITextField!
-  
-  func doSomething()
-  {
-    let request = Categories.Something.Request()
-    interactor?.doSomething(request: request)
-  }
-  
-  func displaySomething(viewModel: Categories.Something.ViewModel)
-  {
-    //nameTextField.text = viewModel.name
-  }
+   
 }
+extension CategoriesViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataSource.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell")  as? TableViewCell else {
+            let cell = UITableViewCell()
+            cell.textLabel?.text = "NO EXISTE"
+            return cell
+        }
+         
+        cell.setupCell(category: dataSource[indexPath.row]) 
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 250
+    }
+    
+     
+}
+

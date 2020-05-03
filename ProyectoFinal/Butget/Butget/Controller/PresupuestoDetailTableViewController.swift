@@ -7,13 +7,17 @@
 //
 
 import UIKit
-
+import SwiftDate
 class PresupuestoDetailTableViewController: UITableViewController {
 
    
+    @IBOutlet weak var lbTimer: UILabel!
     @IBOutlet weak var txtMontoTotal: UILabel!
     @IBOutlet weak var txtMonto: UILabel!
+    var today:Date = Date()
     var presupuesto:Presupuesto?
+    var timer = Timer()
+    var segundos = 0
     weak var delegate : PresupuestoXFormTableViewControllerProtocol?
     let PresupuestoXFormTableViewController = "PresupuestoXFormTableViewController";
     
@@ -34,7 +38,8 @@ class PresupuestoDetailTableViewController: UITableViewController {
         getInstanceButton(tipo:2)
     }
     override func viewDidLoad() {
-        super.viewDidLoad() 
+        super.viewDidLoad()
+        cuentaHora()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -42,8 +47,58 @@ class PresupuestoDetailTableViewController: UITableViewController {
             return
         }
         txtMontoTotal.text = " \(total)"
+          
     }
-    //
+    func cuentaHora(){
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(cadaSegundo), userInfo: nil, repeats: true)
+    }
+    func getSecondsBetween(start: Date,end:Date) -> Int{
+        let result = end.timeIntervalSince(start)
+        return Int(result)
+    }
+    func formatTimer(seconds: Int) -> String{
+        let hours = Int(seconds) / 3600
+        let minutes = Int(seconds) / 60 % 60
+        let seconds = Int(seconds) % 60
+        if hours > 24 {
+                let numberOfDays: Int = hours / 24
+                return "Days: \(numberOfDays)"
+        }
+        return "H:\(hours),M:\(minutes),s:\(seconds)"
+    }
+    
+     
+    @objc func cadaSegundo(){
+ 
+        guard let final = presupuesto?.fechaFinal else {return}
+        guard let inicio = presupuesto?.fechaInicio else {return}
+        var start = Date()
+        var end = Date()
+        var newFechaFinal = Date()
+        if(final > Date()){
+           end = final
+        }else if(final <= Date()){
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM/dd/yyyy"
+            let date = dateFormatter.date(from: Date().toString())
+            
+            if(presupuesto?.periodicidad == 1){//1 semana
+                newFechaFinal = date! + 1.weeks
+                realmManagerp.editPeriocidad(presupuesto:presupuesto!,fechaInicio:Date(),fechaFinal:newFechaFinal)
+            }else if(presupuesto?.periodicidad == 2){//2 semana
+                newFechaFinal = date! + 2.weeks
+                realmManagerp.editPeriocidad(presupuesto:presupuesto!,fechaInicio:Date(),fechaFinal:newFechaFinal)
+            }
+            else if(presupuesto?.periodicidad == 3){//4 semana
+                newFechaFinal = date! + 4.weeks
+                realmManagerp.editPeriocidad(presupuesto:presupuesto!,fechaInicio:Date(),fechaFinal:newFechaFinal)
+            }
+            end = newFechaFinal
+        }
+        let difference = getSecondsBetween(start:Date()  ,end:final )
+        let formatString = formatTimer(seconds:difference)
+        lbTimer.text = formatString
+    }
     
      
     func getInstanceButton(tipo:Int){
@@ -64,10 +119,25 @@ class PresupuestoDetailTableViewController: UITableViewController {
             return "SIN NOMBRE"
         }
     }
+    
  
 }
 
+extension TimeInterval{
 
+    func stringFromTimeInterval() -> String {
+        let time = NSInteger(self)
+
+        let ms = Int((self.truncatingRemainder(dividingBy: 1)) * 1000)
+        let seconds = time % 60
+        let minutes = (time / 60) % 60
+        let hours = (time / 3600)
+        //let formatter = DateFormatter()
+        //formatter.dateFormat = "HH:mm:ss"
+        return String(format: "%0.2d:%0.2d:%0.2d.%0.3d",hours,minutes,seconds,ms)
+
+    }
+}
 
 extension PresupuestoDetailTableViewController:PresupuestoXFormTableViewControllerProtocol{
     func edit(presupuesto: Presupuesto) {

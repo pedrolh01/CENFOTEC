@@ -23,6 +23,10 @@ class CategoryMemoryStore: CategoryStoreProtocol {
         completionHandler(categories)
         
     }
+    func fetch(id:String,completionHandler:(_ category:Category?) -> Void){
+        
+    }
+
     
     
 }
