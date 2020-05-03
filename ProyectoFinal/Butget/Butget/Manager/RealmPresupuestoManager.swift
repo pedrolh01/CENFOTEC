@@ -24,6 +24,7 @@ class RealmPresupuestoManager {
         }
     }
     func insert(presupuesto:Presupuesto) {
+        
         do{
             let realm = try Realm()
             try realm.write{

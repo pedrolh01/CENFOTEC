@@ -33,8 +33,8 @@ class ConfiguracionTableViewController: UITableViewController {
 
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
             print("Handle yes logic here")
-            self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
-
+            //self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
+            self.navigationController?.popToRootViewController(animated: true)
             let realmManager = RealmPresupuestoManager()
             realmManager.truncate()
         }))

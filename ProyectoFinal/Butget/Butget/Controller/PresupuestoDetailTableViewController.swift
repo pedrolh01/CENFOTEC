@@ -39,14 +39,24 @@ class PresupuestoDetailTableViewController: UITableViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        cuentaHora()
+        
+        if((presupuesto?.isInvalidated) == nil){
+            navigationController?.popViewController(animated: true)
+        }else{
+            cuentaHora()
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        guard var total = presupuesto?.detallex.map({$0.monto}).reduce(0,+)else {
-            return
+        if((presupuesto?.isInvalidated) == nil){
+            navigationController?.popViewController(animated: true) 
+        }else{
+            guard var total = presupuesto?.detallex.map({$0.monto}).reduce(0,+)else {
+                return
+            }
+            txtMontoTotal.text = " \(total)"
         }
-        txtMontoTotal.text = " \(total)"
+        
           
     }
     func cuentaHora(){
